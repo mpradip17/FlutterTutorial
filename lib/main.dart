@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'beginner.dart';
+import 'intermediate.dart';
+import 'advanced.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,15 +17,6 @@ class MyApp extends StatelessWidget {
       title: 'Tutorials Flutter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -112,7 +106,10 @@ class CustomCardView extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            print("tapped");
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Intermediate("Intermediate")),
+            );
           },
           child: Card(
             semanticContainer: true,
@@ -155,7 +152,10 @@ class CustomCardView extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            print("tapped");
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Advanced("Advanced")),
+            );
           },
           child: Card(
             semanticContainer: true,
@@ -303,32 +303,33 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 15),
                 child: Text(
-                  "Flutterism",
+                  "Flutter",
                   style: TextStyle(fontSize: 26, color: Colors.white),
                 ),
               ),
             ),
           ),
             ListTile(
-              leading: Icon(Icons.home)
-              , title: Text("Rate Us"),
-              onTap:() {
-            Navigator.pop(context);
-            },
-            ),
-            ListTile(
-              leading: Icon(Icons.home)
-              , title: Text("Share App"),
-              onTap:() {
-            Navigator.pop(context);
-            },
-            ),
-            ListTile(
-              leading: Icon(Icons.home)
+              leading: Icon(Icons.email)
               , title: Text("Email Support"),
               onTap:() {
-            Navigator.pop(context);
+                Navigator.pop(context);
             },
+            ),
+            ListTile(
+              leading: Icon(Icons.bug_report)
+              , title: Text("Report a Bug"),
+              onTap:() {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.self_improvement)
+              , title: Text("Feature Request"),
+              onTap:() {
+
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
